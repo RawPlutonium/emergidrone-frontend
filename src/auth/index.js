@@ -12,6 +12,7 @@ function useProvideAuth(){
     const [user, setUser] = useState(null);
     const {client} = initializeApp();
 
+
     const isLoggedIn = () => client.auth.isLoggedIn;
     const login = (email, password) => {
         const credentials = new UserPasswordCredential(email, password);

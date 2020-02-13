@@ -9,7 +9,7 @@ function Login(props){
     const auth = useAuth();
     const router = useRouter();
     const db = useDb();
-
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,14 +18,21 @@ function Login(props){
         auth.login(email, password)
     }
     useEffect(() =>{
-        if(auth.isLoggedIn()){
-          const {state} = router.location;
-
-          if(state && state.user){
-            db.usersDb.save(state.user);
+        if(auth.isLoggedIn()){  
+          const {email, name} = router.location.state; 
+          if(name && email){
+             //save to the db
+            const {id} = auth.client.auth.user;
+            //save the user
+            db.usersDb.exists(id)
+              .then(() => {
+                db.usersDb.save({email, name, user_id: id});
+              }).catch(console.error);
           }
-          
-          router.push('/landing')
+          router.push({
+            pathname: '/landing',
+            state: {email, name}
+          })
         }
     },[auth])
 

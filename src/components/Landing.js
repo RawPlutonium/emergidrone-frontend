@@ -20,20 +20,9 @@ function Landing(props){
         }
     }, [auth]);
 
-    useEffect(() => {
-        const user = auth.client.auth.user;
-        const {id: _id} = user;
+  
 
-        const exists = db.usersDb.exists(_id);
-        exists.then((user) => {
-            if(!user && showModal){
-                setShowModal(true)
-            }else{
-                setShowModal(false);
-            }
-        })
-
-    }, [auth, db]);
+    
 
     //close modal
     const closeModal = e => setShowModal(false)
