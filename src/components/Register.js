@@ -9,7 +9,6 @@ function Register(props){
     const auth = useAuth();
     const router = useRouter();
     const db = useDb();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
