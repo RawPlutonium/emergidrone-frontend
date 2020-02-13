@@ -19,8 +19,8 @@ function Login(props){
     }
     useEffect(() =>{
         if(auth.isLoggedIn()){  
-          const {email, name} = router.location.state; 
-          if(name && email){
+          const {state} = router.location; 
+          if(state && state.name && state.email){
              //save to the db
             const {id} = auth.client.auth.user;
             //save the user

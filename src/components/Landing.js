@@ -20,18 +20,9 @@ function Landing(props){
         }
     }, [auth]);
 
-  
-
-    
-
-    //close modal
-    const closeModal = e => setShowModal(false)
-
     return(
     <div className="container">
-        {
-            showModal && <IntroModal onClose={closeModal} shown={showModal}/>
-        }
+
         <div className="row">
             <div className="col-md-3"></div>
             <div className="col-md-6">
