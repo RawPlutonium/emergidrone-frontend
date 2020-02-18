@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Brawler
+font link: https://fonts.google.com/specimen/Brawler
+font author: Cyreal
+font author site: http://www.cyreal.org/
+
+
+icon designer: Leonardo Schneider
+icon designer link: /leonardo.schneider
+        
+{"bg":"transparent","icon-gradient-0":"#32142D","icon-gradient-1":"#32142D","font":"#000000","slogan":"#141414"}
+      

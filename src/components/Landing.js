@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../auth';
 import { useRouter } from '../router';
-import { useDb } from '../db';
-import classNames from 'classnames';
-
+import Navbar from './Navbar';
+import '../App.css';
+import Footer from './Footer';
+import Buffer from './Buffer';
 function Landing(props){
     const auth = useAuth();
     const router = useRouter();
-    const db = useDb();
-    const [showModal, setShowModal] = useState(true);
-
     const logout = e => {
         auth.logout()
     }
@@ -21,32 +19,27 @@ function Landing(props){
     }, [auth]);
 
     return(
-    <div className="container">
-
-        <div className="row">
-            <div className="col-md-3"></div>
-            <div className="col-md-6">
-            <h1 className="title"> Emergidrone </h1>
-                <p>Medical drone provider.</p>
-                <button className="btn btn-primary" onClick={logout}>Logout</button>
+        <div>
+           <Navbar/>
+            <div className="container-fluid landing">
+                <div className="bg">
+                        <div className="columns">
+                            <div className="columns is-desktop">
+                                <div className="column is-5 banner-content">
+                                    <h1>Emergidrone</h1>
+                                    <h2>A emergency drone service system.</h2>
+                                </div> 
+                            </div>                            
+                        </div>
+                </div>
             </div>
-            <div className="col-md-3"></div>
-        </div>
-    </div>
+            <Buffer/>
+           <Footer/>
+       </div>
+        
     );
 }
 
 
-function IntroModal({onClose, shown}){
-    return (
-        <div className={classNames("modal", shown && 'is-active')}>
-            <div className="modal-background"></div>
-            <div className="modal-content">
-                Form to get input
-            </div>
-            <button className="modal-close" aria-label="close" onClick={onClose}></button>
-        </div>
-    )
-}
 
 export default Landing;

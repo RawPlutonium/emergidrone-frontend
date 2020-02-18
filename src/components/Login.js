@@ -26,12 +26,11 @@ function Login(props){
             //save the user
             db.usersDb.exists(id)
               .then(() => {
-                db.usersDb.save({email, name, user_id: id});
+                db.usersDb.save({email:state.email, name:state.name, user_id: id});
               }).catch(console.error);
           }
           router.push({
-            pathname: '/landing',
-            state: {email, name}
+            pathname: '/landing'
           })
         }
     },[auth])

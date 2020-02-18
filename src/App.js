@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import { Switch, Route } from './router';
 import Landing from './components/Landing';
 import Register from './components/Register';
+import Footer from './components/Footer';
 
 
 function App(props){
@@ -41,6 +42,7 @@ function Main({children}) {
         <div className="col-md-3"></div>
       </div>
     </div>
+    <Footer/>
     </div>
   );
 }
